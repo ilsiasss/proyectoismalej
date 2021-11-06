@@ -1,0 +1,51 @@
+<div>
+    <div *ngIf="currentConserje.id" class="edit-form">
+      <h4>Conserje</h4>
+      <form>
+        <div class="form-group">
+          <label for="nombre">Nombre</label>
+          <input
+            type="text"
+            class="form-control"
+            id="nombre"
+            [(ngModel)]="currentConserje.nombre"
+            name="nombre"
+          />
+        </div>
+        
+
+
+
+        <div class="form-group">
+            <label for="descripcion">Descripcion</label>
+            <input
+              type="text"
+              class="form-control"
+              id="descripcion"
+              [(ngModel)]="currentConserje.descripcion"
+              name="descripcion"
+            />
+          </div>
+
+
+
+  
+      <button class="badge badge-danger mr-2" (click)="deleteConserje()">
+        Delete
+      </button>
+  
+      <button
+        type="submit"
+        class="badge badge-success mb-2"
+        (click)="updateConserje()"
+      >
+        Update
+      </button>
+      <p>{{ message }}</p>
+    
+  
+    <div *ngIf="!currentConserje.id">
+      <br />
+      <p>Cannot access this Conserje...</p>
+    </div>
+  

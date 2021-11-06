@@ -1,0 +1,66 @@
+<div>
+    <div *ngIf="currentMaestro.id" class="edit-form">
+      <h4>Maestro</h4>
+      <form>
+        <div class="form-group">
+          <label for="nombre">Nombre</label>
+          <input
+            type="text"
+            class="form-control"
+            id="nombre"
+            [(ngModel)]="currentMaestro.nombre"
+            name="nombre"
+          />
+        </div>
+        
+
+
+
+        <div class="form-group">
+            <label for="direccion">Direccion</label>
+            <input
+              type="text"
+              class="form-control"
+              id="direccion"
+              [(ngModel)]="currentMaestro.direccion"
+              name="direccion"
+            />
+          </div>
+
+
+
+
+          <div class="form-group">
+            <label for="telefono">Telefono</label>
+            <input
+              type="text"
+              class="form-control"
+              id="telefono"
+              [(ngModel)]="currentMaestro.telefono"
+              name="telefono"
+            />
+          </div>
+
+
+  
+
+  
+      <button class="badge badge-danger mr-2" (click)="deleteMaestro()">
+        Delete
+      </button>
+  
+      <button
+        type="submit"
+        class="badge badge-success mb-2"
+        (click)="updateMaestro()"
+      >
+        Update
+      </button>
+      <p>{{ message }}</p>
+    
+  
+    <div *ngIf="!currentMaestro.id">
+      <br />
+      <p>Cannot access this Maestro...</p>
+    </div>
+  

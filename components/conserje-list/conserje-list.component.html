@@ -1,0 +1,62 @@
+<div class="list row">
+    <div class="col-md-8">
+      <div class="input-group mb-3">
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Search by nombre"
+          [(ngModel)]="nombre"
+        />
+        <div class="input-group-append">
+          <button
+            class="btn btn-outline-secondary"
+            type="button"
+            (click)="searchNombre()"
+          >
+            Search
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <h4>Conserje List</h4>
+      <ul class="list-group">
+        <li
+          class="list-group-item"
+          *ngFor="let conserje of conserje; let i = index"
+          [class.active]="i == currentIndex"
+          (click)="setActiveConserje(conserje, i)"
+        >
+          {{ conserje.nombre }}
+        </li>
+      </ul>
+  
+      <button class="m-3 btn btn-sm btn-danger" (click)="removeAllConserje()">
+        Remove All
+      </button>
+    </div>
+    <div class="col-md-6">
+      <div *ngIf="currentConserje">
+        <h4>Conserje</h4>
+        <div>
+          <label><strong>Nombre:</strong></label> {{ currentConserje.nombre }}
+        </div>
+        <div>
+            <label><strong>Descripcion:</strong></label>
+            {{ currentConserje.descripcion }}
+          </div>
+          
+  
+        <a class="badge badge-warning" routerLink="/conserje/{{ currentConserje.id }}">
+          Edit
+        </a>
+      </div>
+  
+      <div *ngIf="!currentConserje">
+        <br />
+        <p>Please click on a Conserje...</p>
+      </div>
+    </div>
+  </div>
+
+

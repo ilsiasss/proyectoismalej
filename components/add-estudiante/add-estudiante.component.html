@@ -1,0 +1,58 @@
+<div>
+    <div class="submit-form">
+      <div *ngIf="!submitted">
+        <div class="form-group">
+          <label for="nombre">Nombre</label>
+          <input
+            type="text"
+            class="form-control"
+            id="nombre"
+            required
+            [(ngModel)]="estudiante.nombre"
+            name="nombre"
+          />
+        </div>
+        <div class="form-group">
+          <label for="apellido">Apellido</label>
+          <input
+            class="form-control"
+            id="apellido"
+            required
+            [(ngModel)]="estudiante.apellido"
+            name="apellido"
+          />
+        </div>
+
+
+        <div class="form-group">
+          <label for="direccion">Direccion</label>
+          <input
+            class="form-control"
+            id="direccion"
+            required
+            [(ngModel)]="estudiante.direccion"
+            name="direccion"
+          />
+        </div>
+
+        <div class="form-group">
+            <label for="telefono">Telefono</label>
+            <input
+              class="form-control"
+              id="telefono"
+              required
+              [(ngModel)]="estudiante.telefono"
+              name="telefono"
+            />
+          </div>
+
+
+        <button (click)="saveEstudiante()" class="btn btn-success">Submit</button>
+      </div>
+  
+      <div *ngIf="submitted">
+        <h4>Estudiante was submitted successfully!</h4>
+        <button class="btn btn-success" (click)="newEstudiante()">Add</button>
+      </div>
+    </div>
+  </div>

@@ -1,0 +1,75 @@
+<div>
+    <div *ngIf="currentEstudiante.id" class="edit-form">
+      <h4>Estudiante</h4>
+      <form>
+        <div class="form-group">
+          <label for="nombre">Nombre</label>
+          <input
+            type="text"
+            class="form-control"
+            id="nombre"
+            [(ngModel)]="currentEstudiante.nombre"
+            name="nombre"
+          />
+        </div>
+        <div class="form-group">
+          <label for="apellido">Apellido</label>
+          <input
+            type="text"
+            class="form-control"
+            id="apellido"
+            [(ngModel)]="currentEstudiante.apellido"
+            name="apellido"
+          />
+        </div>
+
+
+
+        <div class="form-group">
+            <label for="direccion">Direccion</label>
+            <input
+              type="text"
+              class="form-control"
+              id="direccion"
+              [(ngModel)]="currentEstudiante.direccion"
+              name="direccion"
+            />
+          </div>
+
+
+
+
+          <div class="form-group">
+            <label for="telefono">Telefono</label>
+            <input
+              type="text"
+              class="form-control"
+              id="telefono"
+              [(ngModel)]="currentEstudiante.telefono"
+              name="telefono"
+            />
+          </div>
+
+
+  
+
+  
+      <button class="badge badge-danger mr-2" (click)="deleteEstudiante()">
+        Delete
+      </button>
+  
+      <button
+        type="submit"
+        class="badge badge-success mb-2"
+        (click)="updateEstudiante()"
+      >
+        Update
+      </button>
+      <p>{{ message }}</p>
+    
+  
+    <div *ngIf="!currentEstudiante.id">
+      <br />
+      <p>Cannot access this Estudiante...</p>
+    </div>
+  

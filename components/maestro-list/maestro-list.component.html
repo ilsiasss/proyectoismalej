@@ -1,0 +1,64 @@
+<div class="list row">
+    <div class="col-md-8">
+      <div class="input-group mb-3">
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Search by nombre"
+          [(ngModel)]="nombre"
+        />
+        <div class="input-group-append">
+          <button
+            class="btn btn-outline-secondary"
+            type="button"
+            (click)="searchNombre()"
+          >
+            Search
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <h4>Maestro List</h4>
+      <ul class="list-group">
+        <li
+          class="list-group-item"
+          *ngFor="let maestro of maestro; let i = index"
+          [class.active]="i == currentIndex"
+          (click)="setActiveMaestro(maestro, i)"
+        >
+          {{ maestro.nombre }}
+        </li>
+      </ul>
+  
+      <button class="m-3 btn btn-sm btn-danger" (click)="removeAllMaestro()">
+        Remove All
+      </button>
+    </div>
+    <div class="col-md-6">
+      <div *ngIf="currentMaestro">
+        <h4>Maestro</h4>
+        <div>
+          <label><strong>Nombre:</strong></label> {{ currentMaestro.nombre }}
+        </div>
+        <div>
+            <label><strong>Direccion:</strong></label>
+            {{ currentMaestro.direccion }}
+          </div>
+          <div>
+          <label><strong>Telefono:</strong></label>
+          {{ currentMaestro.telefono }}
+        </div>
+  
+        <a class="badge badge-warning" routerLink="/maestro/{{ currentMaestro.id }}">
+          Edit
+        </a>
+      </div>
+  
+      <div *ngIf="!currentMaestro">
+        <br />
+        <p>Please click on a Maestro...</p>
+      </div>
+    </div>
+  </div>
+
